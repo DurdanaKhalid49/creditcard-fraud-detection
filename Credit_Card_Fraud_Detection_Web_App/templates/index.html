@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit Card Fraud Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f4f8;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input[type="number"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      grid-column: span 2;
+      background: #eaf8ea;
+      color: #2c662d;
+      border-left: 4px solid #2c662d;
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .result.danger {
+      background: #ffecec;
+      color: #b30000;
+      border-left-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💳 Credit Card Fraud Detection</h1>
+    <form method="POST" action="/predict">
+
+      <div class="form-group"><label for="Time">Time</label><input type="number" name="Time" step="any" required></div>
+      <div class="form-group"><label for="V1">V1</label><input type="number" name="V1" step="any" required></div>
+      <div class="form-group"><label for="V3">V3</label><input type="number" name="V3" step="any" required></div>
+      <div class="form-group"><label for="V4">V4</label><input type="number" name="V4" step="any" required></div>
+      <div class="form-group"><label for="V5">V5</label><input type="number" name="V5" step="any" required></div>
+      <div class="form-group"><label for="V7">V7</label><input type="number" name="V7" step="any" required></div>
+      <div class="form-group"><label for="V8">V8</label><input type="number" name="V8" step="any" required></div>
+      <div class="form-group"><label for="V10">V10</label><input type="number" name="V10" step="any" required></div>
+      <div class="form-group"><label for="V11">V11</label><input type="number" name="V11" step="any" required></div>
+      <div class="form-group"><label for="V12">V12</label><input type="number" name="V12" step="any" required></div>
+      <div class="form-group"><label for="V13">V13</label><input type="number" name="V13" step="any" required></div>
+      <div class="form-group"><label for="V16">V16</label><input type="number" name="V16" step="any" required></div>
+      <div class="form-group"><label for="V17">V17</label><input type="number" name="V17" step="any" required></div>
+      <div class="form-group"><label for="V18">V18</label><input type="number" name="V18" step="any" required></div>
+      <div class="form-group"><label for="V19">V19</label><input type="number" name="V19" step="any" required></div>
+      <div class="form-group"><label for="V22">V22</label><input type="number" name="V22" step="any" required></div>
+      <div class="form-group"><label for="V24">V24</label><input type="number" name="V24" step="any" required></div>
+      <div class="form-group"><label for="V26">V26</label><input type="number" name="V26" step="any" required></div>
+      <div class="form-group"><label for="Amount">Amount</label><input type="number" name="Amount" step="any" required></div>
+
+      <button type="submit">🔍 Predict</button>
+
+      {% if prediction_text %}
+        <div class="result {% if 'Fraud' in prediction_text %}danger{% endif %}">
+          {{ prediction_text }}
+        </div>
+      {% endif %}
+    </form>
+  </div>
+</body>
+</html>
