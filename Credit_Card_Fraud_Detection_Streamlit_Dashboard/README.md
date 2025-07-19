@@ -55,36 +55,34 @@ Enter transaction values manually for real-time prediction.
 ---
 
 ## 📁 Project Structure
-
+``` bash
 Credit_Card_Fraud_Detection_Streamlit_Dashboard/
 │
 ├── app.py # Streamlit app
 ├── requirements.txt # Required packages
 ├── model/
 │ └── xgb_fraud_pipeline.joblib # Saved ML pipeline
-├── Procfile # For deployment (Railway)
 └── README.md
-
-
----
+```
 
 ## 🧪 Run Locally
 
 ```bash
 git clone https://github.com/DurdanaKhalid49/creditcard-fraud-detection.git
 cd creditcard-fraud-detection/Credit_Card_Fraud_Detection_Streamlit_Dashboard
-
+```
+```
 # Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate   # For Windows: venv\Scripts\activate
 ```
 # Install dependencies
 pip install -r requirements.txt
-
+```
+```
 # Run the app
 streamlit run app.py
-📸 Screenshots
-Manual Entry Prediction	CSV Upload Results
+```
 
 📬 Contact
 Made with ❤️ by Durdana Khalid
